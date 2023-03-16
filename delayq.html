@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html> <head> <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+	<h2>Vamshika Dasari builds a delaying queue</h2>
+        <label for="input">Enter the name of item here: </label>
+        <input type = "text" id = "input">
+		<div class="flex-container" id="target">
+			<div class = "delayQ">row item 1</div>   
+			<div class = "delayQ">row item 2</div>  
+			<div class = "delayQ">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Add one</button>
+	<br>
+	<input class="btn" type="button" value="Get" onclick="get()">
+	<input class = "btn" type="button" value="Delay" onclick = "delay()">
+
+	
+	
+</body>
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+		element.innerHTML = "an item after 3"
+		element.style.color = "orange"
+
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.appendChild(element)	
+	}
+	function get(){
+			let queueItems = document.getElementsByClassName("delayQ")
+			console.log(queueItems)
+			let length_elements = queueItems.length
+			if (length_elements>0){
+				queueItems[0].remove()
+			}
+	}
+	function delay(){
+			let queueItems = document.getElementsByClassName("delayQ")
+			let length_elements = queueItems.length
+			if(length_elements==0 || length_elements==1){
+				console.log("Not enough elements to delay")
+			}else{
+				let removedItem = queueItems[length_elements-1]
+				queueItems[length_elements-1].remove()
+				console.log(removedItem)
+				let container_div = document.getElementById("target")
+				container_div.insertBefore(removedItem,container_div.firstChild)
+			}
+	}
+</script>
+</html>	
