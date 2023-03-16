@@ -27,6 +27,9 @@
 	}
 
 	function startTime() {
+        let min = 2;
+        let max = 10;
+        counter = Math.floor(Math.random())
 		for (var i = 0; i < 9; i++) {
 			setTimeout(function() {
 				document.getElementById('counter').innerHTML = "Count: " + i;
