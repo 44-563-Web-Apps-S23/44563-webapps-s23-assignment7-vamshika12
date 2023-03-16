@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hunter </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1 class="bg-primary">Find the mouse by Vamshika Dasari</h1>
+<p class="bg-secondary">Click on the bushes to search for the mouse, beware the cat</p>
+<p class="bg-secondary" id="bushes">Number of bushes checked is zero.</p>
+<p class="bg-secondary" id="penalty">Penalty is zero.</p>
+<p class="bg-secondary" onclick="help()">Click for help.</p>
+<p class="bg-secondary" id="help">Help report</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(0)" id= "id0" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(1)" id= "id1" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(2)" id= "id2" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(3)" id= "id3" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(4)" id= "id4" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(5)" id= "id5" alt="bush" height="90" width="90"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(6)" id= "id6" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(7)" id= "id7" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(8)" id= "id8" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(9)" id= "id9" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(10)" id= "id10" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(11)" id= "id11" alt="bush" height="90" width="90"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(12)" id= "id12" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(13)" id= "id13" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(14)" id= "id14" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(15)" id= "id15" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(16)" id= "id16" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(17)" id= "id17" alt="bush" height="90" width="90"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(18)" id= "id18" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(19)" id= "id19"  alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(20)" id= "id20" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(21)" id= "id21" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(22)" id= "id22" alt="bush" height="90" width="90"></div>
+        <div class="col-sm padding-bottom:5px"><img src="bush.jpg" onclick="check(23)" id= "id23" alt="bush" height="90" width="90"></div>
+    </div>
+</div>
+
+</div>
+<script>
+  let id='id';
+  let checkCount=0;
+  let penalty=0;
+  let lastCheck=0;
+  let mouseLocation = 13;
+  let catLocation = 21;
+  let gameOver=false;
+  let ids=[ ];
+  for(let i=0;i<=23;i++){
+      ids[i]=id+i;
+  }  
+  function check(position){
+    if(gameOver==true){
+
+    }
+    else{
+        if(position==mouseLocation){
+            id=ids[position]
+            document.getElementById(id).src="mouse.jpg";
+            gameOver=true;
+            penalty=penalty-3;
+            console.log("Mouse image "+position);
+            console.log("penalty: "+penalty);
+            console.log("GameOver");
+        }
+        else if(position==catLocation){
+            id=ids[position]
+            document.getElementById(id).src="tiger.jpg";
+            gameOver=true;
+            penalty=penalty+4;
+            console.log("Cat image "+position);
+            console.log("penalty: "+penalty);
+            console.log("GameOver");
+        }
+        else {
+            id=ids[position]
+            document.getElementById(id).src="grass.jpg";
+            checkCount+=1;
+            penalty+=1;
+            console.log("checkcount: "+checkCount);
+            console.log("penalty: " +penalty);
+        }
+        lastCheck=position;
+        console.log("lastCheck position:"+lastCheck);
+      
+    }
+     
+    bushes.innerHTML="Number of bushes checked: "+checkCount;
+    penalty.innerHTML="Penalty: "+penalty;
+}
+
+
+function help() {
+      let catRow = Math.floor(catLocation / 4);
+      let catColumn = catLocation % 6;
+      let mouseRow = Math.floor(mouseLocation / 4);
+      let mouseColumn = mouseLocation % 6;
+      let lastRow = Math.floor(lastCheck / 4);
+      let lastColumn = lastCheck % 6;
+      console.log(catRow,catColumn,mouseRow,mouseColumn,lastRow,lastColumn);
+      penalty = penalty + 2;
+      document.getElementById("penalty").innerHTML = "Penalty: " + penalty;
+      if (
+        Math.abs(catRow - lastRow) <= 1 &&
+        Math.abs(catColumn - lastColumn) <= 1 &&
+        (Math.abs(catRow - mouseRow) > 1 ||
+          Math.abs(catColumn - mouseColumn) > 1)
+      ) {
+        document.getElementById("help").innerText = "meow";
+      } else if (
+        Math.abs(mouseRow - lastRow) <= 1 &&
+        Math.abs(mouseColumn - lastColumn) <= 1 &&
+        (Math.abs(catRow - mouseRow) > 1 ||
+          Math.abs(catColumn - mouseColumn) > 1)
+      ) {
+        document.getElementById("help").innerText = "squeak";
+      } else {
+        document.getElementById("help").innerText = "sorry, no help available";
+      }
+    }
+    
+</script>
+</html>
+
+</body>
+</html>
+
+
+
+
+</body>
+</html>
