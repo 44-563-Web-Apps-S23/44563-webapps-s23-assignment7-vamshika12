@@ -61,8 +61,8 @@
   let checkCount=0;
   let penalty=0;
   let lastCheck=0;
-  let mouseLocation = 13;
-  let catLocation = 21;
+  let mouseLocation = Math.floor(Math.random() * 24);
+  let catLocation = Math.floor(Math.random() * 24);
   let gameOver=false;
   let ids=[ ];
   for(let i=0;i<=23;i++){
@@ -137,7 +137,15 @@ function help() {
         document.getElementById("help").innerText = "sorry, no help available";
       }
     }
-    
+
+  function resetGame() {
+    mouseLocation = Math.floor(Math.random() * 24);
+    catLocation = Math.floor(Math.random() * 24);
+    bushes = 0; 
+    penalty = 0;
+}
+
+
 </script>
 </html>
 
